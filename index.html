@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERRY CHRISTMASSS BABY!!!!!!!!</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="snow-container"></div>
+
+<div class="bg-layer" id="scene">
+    <div class="floating-item p1">❄️</div>
+    <div class="floating-item p2">🎄</div>
+    <div class="floating-item p3">🎀</div>
+    <div class="floating-item p4">⛄</div>
+    <div class="floating-item p5">🍪</div>
+</div>
+
+<aside class="side-decor left">
+    <i class="fa-solid fa-tree tree t1"></i>
+    <i class="fa-solid fa-candy-cane cane c1"></i>
+    <i class="fa-solid fa-tree tree t2"></i>
+</aside>
+<aside class="side-decor right">
+    <i class="fa-solid fa-tree tree t3"></i>
+    <i class="fa-solid fa-candy-cane cane c2"></i>
+    <i class="fa-solid fa-tree tree t4"></i>
+</aside>
+
+<header>
+    <div class="logo-wrapper">
+        <img src="images/9.png" alt="Hello Kitty" class="header-img" onerror="this.src='https://placehold.co/150x150/ff69b4/ffffff?text=Kitty'">
+        <div class="santa-hat"></div>
+    </div>
+    <h1>MERRY CHRISTMAS MY BABYGIRL!!</h1>
+    <p class="subtitle">hi twin... lets explore christmas together.... what is this adventskalender doing here..👀👀👀</p>
+</header>
+
+<main>
+    <div class="path-container" id="path-grid">
+        <svg class="dynamic-svg-layer">
+            <path id="dynamic-path" d="" />
+        </svg>
+    </div>
+
+    <section class="finale-section">
+        <div class="case-trigger-wrapper" id="case-trigger">
+            <img src="images/case.png" alt="CS2 Case" class="case-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <div class="fallback-case">
+                <i class="fa-solid fa-box-archive"></i>
+                <span>Open Case</span>
+            </div>
+            <div class="click-hint">open the case twin..</div>
+        </div>
+
+        <div class="envelope-container hidden" id="envelope-trigger">
+            <div class="envelope-flap"></div>
+            <div class="envelope-pocket"></div>
+            <div class="wax-seal">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="modal-overlay" id="gift-modal">
+    <div class="modal-card">
+        <button class="close-btn" onclick="closeGiftModal()">✖</button>
+        <div class="modal-decoration">🎁</div>
+        <div class="modal-content">
+            <h2 id="gift-title">Day 1</h2>
+            <div class="deco-line">❄️ • ❄️ • ❄️</div>
+            <p id="gift-msg">Loading...</p>
+            <img id="gift-img" class="gift-reveal-img" src="" alt="Gift">
+
+            <div id="quiz-container"></div>
+        </div>
+    </div>
+</div>
+
+<div class="cs2-overlay" id="cs2-modal">
+    <div class="gold-chant">GOLD GOLD GOLD</div>
+    <div class="cs2-window">
+        <div class="center-line"></div>
+        <div class="reel-container">
+            <div class="reel" id="reel"></div>
+        </div>
+        <div class="cs2-text" id="cs2-status">Rolling...</div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="letter-modal">
+    <div class="letter-card">
+        <button class="close-btn" onclick="closeLetterModal()">✖</button>
+        <div class="letter-header">
+            <h2>my flooperdooper...</h2>
+            <span class="date">December 25, 2025</span>
+        </div>
+        <div class="letter-body">
+            <p>Merry Christmas my sweet sweet sweet babygirl :D</p>
+            <p>just like a gold, you are one in a million <3</p>
+            <p>
+                i love you so fucking much francesca <3 ive been so fucking happy lately, the happiest ive ever been, and thats all thanks to you. i really cant imagine a future without you, at all. youre the best thing to ever happen to me, and its not even close. also, yes, this is the reason ive been going to sleep at 3am for the past week. but its been so worth because guess what, i LOVE MY WIFE. youre literally the most gorgeous fucking girl ever, youre so perfect in every fucking way, i couldnt have asked for anybody else.
+            </p>
+            <p>
+                youre so incredible, youre so smart, youre so attentative, i've never loved anyone like ive loved you in my life. i have to admit, i used to think of us kissing 24/7 but for the past few months really, 1/2 my thoughts have just been the future for us, having kids, our wedding, getting to call you my wife, living together, im so incredibly fucking excited, i always will be. i cant explain how grateful i am to you, for loving me, for being so patient with me, it makes me really happy. usually november and december are the worst months for me mentally, but clearly that doesnt apply anymore, i feel actually happy to spend the holidays with somebody, i feel like wanting to celebrate for, the first time since i was a kid really.
+            </p>
+            <p>
+                you and your little stranger things are so adorable, i wish i couldve watched it with you but i know i wouldve literally gone insane and i wanna give you something to enjoy yourself too :D i really really hope youre as happy as i am this holiday season, even though this year i barely feel like its christmas, i still wanna celebrate with my baby, no matter what.
+            </p>
+            <p>
+                ill always love the little things, how you giggle and laugh, how youre such a little yapper, how adorable you sound when youre sleepy, how effortlessly beautiful you are, the way you smile, everything. i just wanna give you the biggest smooch ever and never let go, its gonna be a big MWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH and its never ever gonna end until i run out of breath and get slimed (gg)
+            </p>
+            <p>
+                im really glad youve been enjoying cs too (cs2 haha get it ok no sorry), ive been having so much fun seeing you definitely not get slimed the moment i do a 180, its not at all a 'compromise' to play with you in any way, youre seriously better than these retards in our team, youre funnier, youre not 20iq, not down syndrome, and youre my wife. its like i have the best duo ever except we both wanna fuck and kiss???? === max win ????? gold gold gold (youd be a butterfly black pearl 0.00 if you were a gold btw), id open a million cases if it means i get to have you, i just know this is gonna be such an amazing year, i cant fucking wait to see what the future holds for us, i promise to love you EVEN MORE this year, i could never stop loving you ever ever ever. all the hours i spent making stupid fucking features here i was smiling the entire time just thinking of your reaction and how im sure theyd make you smile even though the FUCKING CONFETTI LIBRARY IS SUCH A BITCH FUCK YOU WHOEVER DEVELOPED THAT PIECE OF SHIT KILL YOURSELF NOW NOW NOW. i just wanted to make something personal and special for you, something nobody else has, because youre like nobody else.
+            </p>
+            <p>
+                and yes, before you think rolling a gold is worse than getting a cum video, you will get video too <3
+                forever in love with you my babypie, biggest kisses ever and a merry christmas sweetheart <3
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
