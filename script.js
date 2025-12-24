@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 caseFailures++;
                 const hintLength = Math.min(caseFailures, caseAnswer.length);
                 const hint = caseAnswer.substring(0, hintLength).toUpperCase();
-                alert(`wrong bitch. ${hint}...`);
+                alert(`stupid bitch do you really need a hint for a question this fucking simple? ${hint}...`);
             }
         });
     }
