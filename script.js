@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "i love your beautiful smile SO MUCH YOURE SO PRETTY I LOVE IT",
         "your face is getting licked twin....",
         "youre so fucking cute :(",
-        "i love how intelligent you are <3",
-        "hi poop handpictur for you later :D",
+        "did you know i like love you so much",
+        "hi",
         "i love you more than cs :DD",
         "youre my pretty princess forever <3",
         "eyes so pretty i could cry (true..)",
@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "who am i SO proud of every day?",
         "...... you know what that means......",
         "I LOVE MY FUCKING WIFE SO MUCH",
-        "whos my baby?"
     ];
 
     const specialInteractions = {
@@ -39,23 +38,36 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'quiz',
             correct: "YOU (The prettiest)",
             wrong: "every other girl",
-            successMsg: "YEAHHH GOOD JOBBB BABY OBVIOUSLY ITS YOU"
+            successMsg: "YEAHHH GOOD JOBBB BABY OBVIOUSLY ITS YOU",
+            rewardImg: "images/IMG_9403.JPEG"
         },
         22: {
             type: 'quiz',
             correct: "MY BABY (YOU)",
             wrong: "RANDOM RETARDS ON CS",
-            successMsg: "YEAHHH YOU BEEET IM ALWAYS SO PROUD <3"
+            successMsg: "YEAHHH YOU BEEET IM ALWAYS SO PROUD <3",
+            rewardImg: "images/IMG_9405.JPEG"
         }
     };
 
     const daysData = Array.from({ length: 24 }, (_, i) => {
         const dayNum = i + 1;
-        const imgIndex = ((i) % 8) + 1;
+        const msgText = messages[i % messages.length] || "MERRY CHRISTMAS";
+
+        let imgPath = `images/${((i) % 8) + 1}.png`;
+
+        if (msgText === "hi") {
+            imgPath = "images/IMG_9400.JPEG";
+        } else if (msgText === "im gonna cum on your gorgeous face :D") {
+            imgPath = "images/IMG_9401.JPEG";
+        } else if (msgText === "im gonna hit you :D") {
+            imgPath = "images/IMG_9402.JPEG";
+        }
+
         return {
             id: dayNum,
-            msg: messages[i % messages.length] || "MERRY CHRISTMAS",
-            img: `images/${imgIndex}.png`,
+            msg: msgText,
+            img: imgPath,
             interaction: specialInteractions[dayNum] || null
         };
     });
@@ -152,6 +164,60 @@ document.addEventListener('DOMContentLoaded', () => {
             decoLine.style.color = "";
         }
 
+        imgEl.src = data.img;
+        imgEl.onerror = function() { this.src = `https://placehold.co/300x300/ff9ebd/ffffff?text=Image+${data.id}`; };
+
+        const applyCustomFeatures = () => {
+            const svgCursor = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="28" font-size="28">😛</text></svg>`;
+            const cursorUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svgCursor)}`;
+            imgEl.style.cursor = `url('${cursorUrl}') 16 16, auto`;
+
+            imgEl.onclick = function(e) {
+                e.stopPropagation();
+
+                const overlay = document.createElement('div');
+                Object.assign(overlay.style, {
+                    position: 'fixed', top: '0', left: '0', width: '100vw', height: '100vh',
+                    backgroundColor: 'rgba(0, 0, 0, 0.9)', zIndex: '10000',
+                    display: 'flex', justifyContent: 'center', alignItems: 'center',
+                    opacity: '0', transition: 'opacity 0.3s ease', cursor: 'pointer'
+                });
+
+                const bigImg = document.createElement('img');
+                bigImg.src = imgEl.src;
+                Object.assign(bigImg.style, {
+                    maxWidth: '90%', maxHeight: '90%', borderRadius: '10px',
+                    boxShadow: '0 0 30px rgba(255,255,255,0.2)',
+                    transform: 'scale(0.9)', transition: 'transform 0.3s ease'
+                });
+
+                overlay.appendChild(bigImg);
+                document.body.appendChild(overlay);
+
+                requestAnimationFrame(() => {
+                    overlay.style.opacity = '1';
+                    bigImg.style.transform = 'scale(1)';
+                });
+
+                overlay.onclick = () => {
+                    overlay.style.opacity = '0';
+                    bigImg.style.transform = 'scale(0.9)';
+                    setTimeout(() => overlay.remove(), 300);
+                };
+            };
+        };
+
+        const removeCustomFeatures = () => {
+            imgEl.style.cursor = 'default';
+            imgEl.onclick = null;
+        };
+
+        if (data.img.includes('IMG_') || data.img.includes('.JPEG')) {
+            applyCustomFeatures();
+        } else {
+            removeCustomFeatures();
+        }
+
         if (data.interaction && data.interaction.type === 'quiz') {
 
             const correctBtn = document.createElement('button');
@@ -161,6 +227,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 msg.innerText = data.interaction.successMsg;
                 msg.style.color = "#2ecc71";
                 msg.style.fontWeight = "bold";
+
+                if (data.interaction.rewardImg) {
+                    imgEl.src = data.interaction.rewardImg;
+                    applyCustomFeatures();
+                }
+
                 fireConfetti();
                 quizContainer.innerHTML = '';
             };
@@ -182,9 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
             quizContainer.appendChild(correctBtn);
             quizContainer.appendChild(wrongBtn);
         }
-
-        imgEl.src = data.img;
-        imgEl.onerror = function() { this.src = `https://placehold.co/300x300/ff9ebd/ffffff?text=Image+${data.id}`; };
 
         if(giftModal) giftModal.classList.add('active');
     };
@@ -250,7 +319,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return { color: 'red', emoji: pick.emoji, name: pick.name };
     }
 
-    if (caseTrigger) caseTrigger.addEventListener('click', startCaseOpening);
+    let caseFailures = 0;
+    const caseAnswer = "luca";
+
+    if (caseTrigger) {
+        caseTrigger.addEventListener('click', () => {
+            const userInput = prompt("who's your daddy?");
+
+            if (userInput && userInput.toLowerCase() === caseAnswer) {
+                startCaseOpening();
+            } else {
+                caseFailures++;
+                const hintLength = Math.min(caseFailures, caseAnswer.length);
+                const hint = caseAnswer.substring(0, hintLength).toUpperCase();
+                alert(`wrong bitch. ${hint}...`);
+            }
+        });
+    }
 
     function startCaseOpening() {
         if (!cs2Modal) return;
