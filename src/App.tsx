@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Heart, Lock, Grid, ShieldCheck, Save, Key } from 'lucide-react';
+import { Lock, Grid, ShieldCheck, Save } from 'lucide-react';
 
 // --- YOUR LOVE LETTER CONTENT ---
 const LETTER_FRONT = `guess who i love so much`;
