@@ -72,11 +72,14 @@ const TypewriterIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
+// --- FIXED UMBRELLA CORP LOGO ---
 const BiohazardIcon = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 100 100" className={className}>
-        {/* Umbrella Corp Logo Structure */}
-        <circle cx="50" cy="50" r="48" fill="#f0f0f0" />
-        <g fill="currentColor">
+        {/* White Background Circle (Diagonals) */}
+        <circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#111" strokeWidth="1" />
+
+        {/* Red Wedges (Cross) */}
+        <g fill="#cc0000">
             {/* Top Wedge */}
             <path d="M50 50 L32.8 9.1 A 45 45 0 0 1 67.2 9.1 Z" />
             {/* Right Wedge */}
@@ -86,7 +89,6 @@ const BiohazardIcon = ({ className }: { className?: string }) => (
             {/* Left Wedge */}
             <path d="M50 50 L9.1 67.2 A 45 45 0 0 1 9.1 32.8 Z" />
         </g>
-        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.5" />
     </svg>
 );
 
@@ -138,7 +140,6 @@ const RunawayButton = () => {
         const randomY = Math.random() * 400 - 200;
         setPosition({ x: randomX, y: randomY });
     };
-    // ^^^ MAKE SURE THERE IS NO EXTRA "};" HERE
 
     return (
         <motion.button
@@ -176,7 +177,7 @@ const DoorLoader = () => {
             </motion.div>
             <div className="absolute bottom-10 right-10 animate-pulse flex items-center gap-2">
                 <span className="text-gray-500 font-typewriter text-xs">LOADING...</span>
-                <BiohazardIcon className="w-6 h-6 fill-red-800" />
+                <BiohazardIcon className="w-6 h-6" />
             </div>
         </div>
     );
@@ -852,7 +853,7 @@ export default function ValentineVaultRE() {
                                     <div className="bg-black border-2 border-gray-700 p-6 my-6 relative overflow-hidden group">
                                         <div className="absolute top-0 right-0 bg-green-700 text-white text-[10px] px-2 py-1 uppercase font-bold">Key Item</div>
                                         <div className="flex flex-col items-center gap-4">
-                                            <BiohazardIcon className="w-16 h-16 fill-gray-500 group-hover:fill-red-700 transition-colors duration-500" />
+                                            <BiohazardIcon className="w-16 h-16" />
                                             <div className="text-center">
                                                 <h3 className="text-green-500 font-typewriter text-xl font-bold uppercase tracking-wider">Resident Evil 9</h3>
                                                 <p className="text-gray-400 font-serif text-lg italic">"Requiem... (wat does that even mean)"</p>
