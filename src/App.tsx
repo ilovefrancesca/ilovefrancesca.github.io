@@ -687,10 +687,10 @@ export default function ValentineVaultRE() {
 
     // DIRECT IMAGE LINKS with positioning correction
     const bicepImages = [
-        { src: "https://i.ibb.co/qM8YH6PZ/IMG-0291.jpg", caption: "hi", pos: "50% 25%" }, // MOVED DOWN (TOP 25%)
-        { src: "https://i.ibb.co/7Jjkc6hS/IMG-0292.jpg", caption: "i", pos: "center" },
-        { src: "https://i.ibb.co/9HCGgJNJ/IMG-0294.jpg", caption: "love", pos: "center" },
-        { src: "https://i.ibb.co/Y789vdPN/IMG-0295.jpg", caption: "you", pos: "center" }
+        { src: "https://i.ibb.co/j9J7FnZx/IMG-0291.jpg", caption: "hi", pos: "50% 25%" }, // MOVED DOWN (TOP 25%)
+        { src: "https://i.ibb.co/G4NmqVC3/IMG-0292.jpg", caption: "i", pos: "center" },
+        { src: "https://i.ibb.co/PZjqRY6j/IMG-0294.jpg", caption: "love", pos: "center" },
+        { src: "https://i.ibb.co/kgvRvLNk/IMG-0295.jpg", caption: "you", pos: "center" }
     ];
 
     // --- RENDERS ---
