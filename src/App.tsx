@@ -3,7 +3,46 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, Grid, ShieldCheck, Save } from 'lucide-react';
 
 // --- YOUR LOVE LETTER CONTENT ---
-const LETTER_FRONT = `guess who i love so much`;
+const LETTER_FRONT = `
+
+My beautiful beautiful girl, i love you, so much. i am so extremely mad at myself for not being here to spend the day with you properly on valentines like i should,
+but i wont let that get in the way of my overwhelming feelings of love for you. i have never, ever been this happy in my life. you singlehandedly have made me, depressed emo luca, the happiest he has ever been.
+and you know what? i couldnt be more grateful. you deserve the fucking world, more than i could ever give you, really. you are so perfect in my eyes. i have not once found a flaw within you, and i mean that.
+the way you giggle is so cute, the way you smile, the way i see you light up when we bully stupid retards in games, man, it makes me the happiest man in the world. youre so precious. youre my precious girl. 
+youre MINE, i cant believe youre mine. a girl like you, ever wanting me is, beyond me really, but im greedy, and if i have the best there is, who am i to complain? 
+
+youre one of a kind to me, the rest of the world is an absolute downgrade. anything that isnt you right now, is a downgrade. i need to be the person that stands between my beautiful girl and the world
+that doesnt deserve her. you make me feel so territorial, i get SO angry when other people talk to you i should be locked up, being the only man that gets to have you, the real, the actual francesca gives me suuuuucchhhhh
+an ego boost and you know my disorders love that lelelelelelelleellele 
+i want all of your time, i want all your thoughts, all your attention, 'enough' isnt a thing when it comes to you, i look back to the pictures of my name in you so much because my brain goes,
+wow gorgeous thighs and body and btw its all for you MMMM YUMMMMMM, thats so fucking hot, the cutting aspect is like whatever, obviously we wont be doing that anymore and i dont really care, you could write my name on you with sharpie and id cum to it
+SO HARD you dont even know mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm yumyumyuyumyuymuyumyum even just the thought of you wearing an 'L' necklace everywhere or something MMMMM YUMMMMYY yumyum
+really, i wanna leave such a mark on your life nobody even dares to fit in, you know i dont do things halfway, i love you so much, it consumes me.
+
+youre so special to me, i remember falling for you so hard, thinking wow, this could be so great but i know its gonna go so wrong, and how wrong was i?
+i am so, so in love with you, like nothing ive ever felt before, i want to spend the rest of my life with you, i will marry you. 
+i will make you my wife, i will start a beautiful family with my beautiful girl.
+you make me feel so much better, always, just getting to talk to you, hearing your pretty voice, the little things you do for me. 
+even stupid shit like showing me tummy when i feel down, thats so fucking hot, not just because oo tummy yum but just, knowing you know what makes me happy, and trying your best to make me happy, always. it makes me so proud.
+it makes me confident i can rely on you, i can rely on you to make me feel better when i feel bad, i know nothing could ever go wrong, because i have you, nothing will ever be bad, because i have you. 
+even at the worst point of my life, id still have you, and thatd make it the best point of my life.
+
+i find the little things you do for me so cute. you know me so well, you know how i am, you know what ill say, how ill react. i remember one time you told me something where if i was
+mega insecure and retarded i couldve been like 'errrmm why did you do that in the first place' but without me even saying anything you were like, if youre wondering why i did this at all, its because xyz,
+you give me no reason to doubt you. im so grateful for you, grateful for my girl. im so proud of you, ive noticed so much positive change in you, and really, i dont say how proud i am enough, im not only proud of you, but i am so fucking proud to call you mine.
+
+youre so adorable, everything you do is so adorable to me, i love when you get all sleepy and all you can say is mhmmmmmmmm and youre just a sleepy little girl goodddddd thats so fucking cute,
+its so cute, and so hot that you feel so safe around me, safe to be yourself, to be my little girl, you really make me feel like an accomplished father, and holy, that is the best thing ive ever felt.
+
+i wanted to show you some new album songs but alex is being a CUNT and slowing down the release date but some of the lines are about you so when they release and you can listen to them ill tell you about it :D
+
+you are, the best girl, in the whole fucking world.
+
+i love you babe <3
+
+xoxo kisses - husband luca
+
+`;
 
 const LETTER_BACK = `
     .......
@@ -29,6 +68,14 @@ const LETTER_BACK = `
     kay this seemed too funny not to have on the back of this
 `;
 
+const ADJECTIVES = [
+    "beautiful",
+    "gorgeous",
+    "pretty",
+    "sweet",
+    "sexy",
+    "perfect"
+];
 // --- Types ---
 type ItemType = 'file' | 'herb' | 'heal' | 'container' | 'key_item';
 
@@ -206,7 +253,7 @@ const RiddleModal = ({ isOpen, onClose }: any) => {
         } else {
             // Shake effect or error could go here, but for now just clear
             setInput("");
-            alert("Wrong answer... think harder.");
+            alert("are you stupid bitch?");
         }
     };
 
@@ -352,9 +399,9 @@ const SafeTerminal = ({ isOpen, onClose, onUnlock }: any) => {
                         <div className="mb-8 space-y-4">
                             <p className="text-gray-400 text-sm">USER AUTHENTICATION REQUIRED</p>
                             <p className="text-white text-lg animate-pulse">
-                                QUERY: "I am your ____?"
+                                "I am your ____?"
                             </p>
-                            <p className="text-xs text-gray-600">(4 Letters)</p>
+                            <p className="text-xs text-gray-600"></p>
                         </div>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
@@ -529,6 +576,17 @@ export default function ValentineVaultRE() {
     // ADD THIS NEW LINE:
     const [giftAccepted, setGiftAccepted] = useState(false);
 
+    // --- WORD ROTATION STATE ---
+    const [adjIndex, setAdjIndex] = useState(0);
+
+    // ADJECTIVE ROTATION EFFECT
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setAdjIndex((prev) => (prev + 1) % ADJECTIVES.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
+
     const galleryRef = useRef<HTMLDivElement>(null);
 
     // Dynamic Title Effect
@@ -634,6 +692,25 @@ export default function ValentineVaultRE() {
         return (
             <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white">
                 <h1 className="text-4xl md:text-6xl font-serif text-red-600 mb-8 tracking-widest animate-pulse text-center">RESIDENT... VALENTINE...</h1>
+                {/* --- ANIMATED SUBTEXT --- */}
+                <div className="flex items-center gap-2 font-typewriter text-red-400/80 text-sm md:text-lg mb-10 h-8 justify-center">
+                    <span>happy valentines day my</span>
+                    <div className="relative w-24 md:w-32 h-full text-center">
+                        <AnimatePresence mode="popLayout">
+                            <motion.span
+                                key={ADJECTIVES[adjIndex]}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -20, opacity: 0 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                className="absolute inset-0 font-bold text-red-600 uppercase"
+                            >
+                                {ADJECTIVES[adjIndex]}
+                            </motion.span>
+                        </AnimatePresence>
+                    </div>
+                    <span>girl</span>
+                </div>
                 <button
                     onClick={handleStartGame}
                     className="group relative px-8 py-4 bg-gray-900 border border-gray-600 hover:border-green-500 transition-all"
@@ -801,7 +878,7 @@ export default function ValentineVaultRE() {
             </main>
 
             <div className="mt-20 text-center opacity-10 text-[10px] hover:opacity-100 hover:text-red-600 transition-colors cursor-help pb-10">
-                4. Itchy. Tasty.
+                i wanna drug you
             </div>
 
             {/* --- MODALS --- */}
@@ -855,7 +932,7 @@ export default function ValentineVaultRE() {
                                         <div className="flex flex-col items-center gap-4">
                                             <BiohazardIcon className="w-16 h-16" />
                                             <div className="text-center">
-                                                <h3 className="text-green-500 font-typewriter text-xl font-bold uppercase tracking-wider">Resident Evil 9</h3>
+                                                <h3 className="text-green-500 font-typewriter text-xl font-bold uppercase tracking-wider">Resident Evil 9 (REPRESENT)</h3>
                                                 <p className="text-gray-400 font-serif text-lg italic">"Requiem... (wat does that even mean)"</p>
                                                 <p className="text-gray-600 text-xs mt-2 uppercase border-t border-gray-800 pt-2">i pre ordered it for u xoxo</p>
                                                 <p className="text-gray-600 text-[10px] uppercase">Est. Arrival: Feb 27</p>
@@ -864,7 +941,7 @@ export default function ValentineVaultRE() {
                                     </div>
 
                                     <div className="text-gray-400 font-typewriter text-sm mb-6">
-                                        im gonna fuck your pretty face so hard btw mmmmm mmmm mmmmm
+                                        i couldnt gift it for whatever reason so u get a deluxe key on release day :D
                                     </div>
 
                                     {/* BUTTONS */}
