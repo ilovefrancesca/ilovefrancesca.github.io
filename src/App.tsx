@@ -701,7 +701,7 @@ export default function ValentineVaultRE() {
                 <h1 className="text-4xl md:text-6xl font-serif text-red-600 mb-8 tracking-widest animate-pulse text-center">RESIDENT... VALENTINE...</h1>
                 {/* --- ANIMATED SUBTEXT --- */}
                 <div className="flex items-center gap-2 font-typewriter text-red-400/80 text-sm md:text-lg mb-10 h-8 justify-center">
-                    <span>happy valentines day my</span>
+                    <span>HAPPY VALENTINES DAY MY</span>
                     <div className="relative w-24 md:w-32 h-full text-center">
                         <AnimatePresence mode="popLayout">
                             <motion.span
@@ -716,7 +716,7 @@ export default function ValentineVaultRE() {
                             </motion.span>
                         </AnimatePresence>
                     </div>
-                    <span>girl</span>
+                    <span>GIRL!! I LOVE YOU SO MUCH</span>
                 </div>
                 <button
                     onClick={handleStartGame}
