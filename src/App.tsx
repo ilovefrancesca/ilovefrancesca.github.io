@@ -74,6 +74,13 @@ const ADJECTIVES = [
     "pretty",
     "sweet",
     "sexy",
+    "amazing",
+    "sweet",
+    "stunning",
+    "cute",
+    "adorable",
+    "loving",
+    "best",
     "perfect"
 ];
 // --- Types ---
@@ -583,7 +590,7 @@ export default function ValentineVaultRE() {
     useEffect(() => {
         const interval = setInterval(() => {
             setAdjIndex((prev) => (prev + 1) % ADJECTIVES.length);
-        }, 2000);
+        }, 1000);
         return () => clearInterval(interval);
     }, []);
 
